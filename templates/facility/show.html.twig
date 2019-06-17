@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Facility Details</h1><hr>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Facility Name</th>
+                <td>{{ facility.facilityName }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ facility.description }}</td>
+            </tr>
+            <tr>
+                <th>IsActive</th>
+                <td>{{ facility.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('facility_index') }}">back to list</a>
+
+    <a href="{{ path('facility_edit', {'id': facility.id}) }}">edit</a>
+{% endblock %}

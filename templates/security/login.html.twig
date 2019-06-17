@@ -1,0 +1,71 @@
+{% extends 'login.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Starter Login</h1>
+                </div>
+                <!-- login form here-->
+                  <form method="post">
+                      {% if error %}
+                          <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                      {% endif %}
+
+                      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                      <label for="inputEmail" class="sr-only">Email</label>
+                      <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                      <br>
+                      <label for="inputPassword" class="sr-only">Password</label>
+                      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                      <input type="hidden" name="_csrf_token"
+                             value="{{ csrf_token('authenticate') }}"
+                      >
+
+                      {#
+                          Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                          See https://symfony.com/doc/current/security/remember_me.html
+
+                          <div class="checkbox mb-3">
+                              <label>
+                                  <input type="checkbox" name="_remember_me"> Remember me
+                              </label>
+                          </div>
+                      #}
+                      <br>
+                      <button class="content-justify-end btn btn-md btn-primary" type="submit">
+                          Sign in
+                      </button>
+                  </form>
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="#">Forgot Password?</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="#">Create an Account!</a>
+                  </div>
+                <!-- end of login form here-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clearance Purpose</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Purpose</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set cnt = 1 %}
+        {% for clearance_purpose in clearance_purposes %}
+            <tr>
+                <td>{{ cnt }}</td>
+                <td>{{ clearance_purpose.purpose }}</td>
+                <td>{{ clearance_purpose.description }}</td>
+                <td>
+                    <a href="{{ path('clearance_purpose_show', {'id': clearance_purpose.id}) }}">show</a>
+                    <a href="{{ path('clearance_purpose_edit', {'id': clearance_purpose.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('clearance_purpose_new') }}">Create new</a>
+{% endblock %}

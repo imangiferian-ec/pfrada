@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Citizens List</h1>
+    <a class="btn btn-primary btn-md" href="{{ path('citizen_new') }}">Create new</a>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Birth Date</th>
+                <th>Gender</th>
+                <th>Civil Status</th>
+                <th>Voter ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set cnt = 1 %}
+        {% for citizen in citizens %}
+            <tr>
+                <td>{{ cnt }}</td>
+                <td>{{ citizen.lastname | title }}, {{ citizen.firstname | title  }} {{ citizen.middlename | title  }} {{ citizen.extensionName }}</td>
+                <td>{{ citizen.address | title  }}</td>
+                <td>{{ citizen.birthDate ? citizen.birthDate|date('F d, Y') : '' }}</td>
+                <td>{{ citizen.gender | title  }}</td>
+                <td>{{ citizen.civilStatus | title  }}</td>
+                <td>{{ citizen.citizenVoterID }}</td>
+                <td>
+                    <a class="btn btn-info btn-md" href="{{ path('citizen_show', {'id': citizen.id}) }}">show</a>
+                    <a class="btn btn-warning btn-md" href="{{ path('citizen_edit', {'id': citizen.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

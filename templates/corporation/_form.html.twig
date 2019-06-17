@@ -1,0 +1,128 @@
+{{ form_start(form) }}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="form-group">
+          {{ form_label(form.businessName) }}
+          {{ form_widget(form.businessName, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.businessName) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 offset-md-1">
+        <div class="form-group">
+          {{ form_label(form.dateRegistered) }}
+          {{ form_widget(form.dateRegistered, {'attr': {'class': 'date-picker'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.dateRegistered) }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          {{ form_label(form.businessType) }}
+          {{ form_widget(form.businessType, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.businessType) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="form-group">
+          {{ form_label(form.birNo) }}
+          {{ form_widget(form.birNo, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.birNo) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="form-group">
+          {{ form_label(form.tinNo) }}
+          {{ form_widget(form.tinNo, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.tinNo) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="form-group">
+          {{ form_label(form.philgeps) }}
+          {{ form_widget(form.philgeps, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.philgeps) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 offset-md-1">
+        <div class="form-group">
+          {{ form_label(form.ownerName) }}
+          {{ form_widget(form.ownerName, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.ownerName) }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          {{ form_label(form.contactPersonName) }}
+          {{ form_widget(form.contactPersonName, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.contactPersonName) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 offset-md-1">
+        <div class="form-group">
+          {{ form_label(form.emailOfContactPerson) }}
+          {{ form_widget(form.emailOfContactPerson, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.emailOfContactPerson) }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          {{ form_label(form.contactNo) }}
+          {{ form_widget(form.contactNo, {'attr': {'class': 'form-control'}}) }}
+          <div class="form-error">
+            {{ form_errors(form.contactNo) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <button class="float-right btn btn-primary btn-md">{{ button_label|default('Save') }}</button>
+      </div>
+    </div>
+  </div>
+{{ form_end(form) }}

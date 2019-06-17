@@ -1,0 +1,55 @@
+{{ form_start(form) }}
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.newApplicantCharge) }}
+        {{ form_widget(form.newApplicantCharge, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.newApplicantCharge) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.renewalApplicantCharge) }}
+        {{ form_widget(form.renewalApplicantCharge, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.renewalApplicantCharge) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.businessType) }}
+        {{ form_widget(form.businessType, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.businessType) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.isForCitizen) }}
+        {{ form_widget(form.isForCitizen) }}
+        <div class="form-error">
+        {{ form_errors(form.isForCitizen) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="float-right btn btn-primary btn-md">{{ button_label|default('Save') }}</button>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit BusinessPermitFee{% endblock %}
+
+{% block body %}
+    <h1>Edit BusinessPermitFee</h1>
+
+    {{ include('business_permit_fee/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('business_permit_fee_index') }}">back to list</a>
+{% endblock %}

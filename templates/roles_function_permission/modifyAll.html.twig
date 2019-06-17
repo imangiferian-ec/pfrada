@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modify Roles Permission{% endblock %}
+
+{% block body %}
+  <h1>Permission List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Function Name</th>
+                <th>Permitted Roles</th>
+                <th>Is Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <form action="{{ path('modify_all_pl') }}" method="POST">
+        <tbody>
+        {% set cnt = 0 %}
+        {% set modName = '' %}
+        {% for permission_list in permission_lists %}
+          {% if permission_list.module != modName %}
+          {% for systemModule in systemModules %}
+            {% if systemModule.moduleName == permission_list.module %}
+            <tr>
+              <td colspan="5"><h4>{{ systemModule.moduleName | title }}</h4></td>
+              {% set modName = permission_list.module %}
+            </tr>
+            {% endif %}
+          {% endfor %}
+          {% endif %}
+            <tr>
+                <td>
+                {{ cnt + 1 }}
+                </td>
+                <td>{{ permission_list.functionName }}</td>
+                <td>
+                  {% for role in roles %}
+                    {% if role in permission_list.permittedRoles %}
+                      <input type="checkbox" name="permittedRole[{{permission_list.id}}][]" value="{{role}}" checked>{{role}}
+                    {% else %}
+                      <input type="checkbox" name="permittedRole[{{permission_list.id}}][]" value="{{role}}">{{role}}
+                    {% endif %}
+                  {% endfor %}
+                </td>
+                <td>{{ permission_list.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('roles_function_permission_show', {'id': permission_list.id}) }}">Details</a> |
+                    <a href="{{ path('roles_function_permission_edit', {'id': permission_list.id}) }}">Modify</a>
+                </td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5"><input type="submit" value="Update Permissions" class="float-right btn btn-primary btn-md"></td>
+          </tr>
+        </tfoot>
+        </form>
+    </table>
+{% endblock %}

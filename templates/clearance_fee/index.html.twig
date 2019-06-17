@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clearance Fee</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Clearance Application Purpose</th>
+                <th>Voter's Fee</th>
+                <th>Non-voter Fee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set cnt = 1 %}
+        {% for clearance_fee in clearance_fees %}
+            <tr>
+                <td>{{ cnt }}</td>
+                <td>{{ clearance_fee.clearancePurpose }}</td>
+                <td>{{ clearance_fee.voterFeeAmount }}</td>
+                <td>{{ clearance_fee.nonVoterFeeAmount }}</td>
+                <td>
+                    <a href="{{ path('clearance_fee_show', {'id': clearance_fee.id}) }}">show</a>
+                    <a href="{{ path('clearance_fee_edit', {'id': clearance_fee.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('clearance_fee_new') }}">Create new</a>
+{% endblock %}

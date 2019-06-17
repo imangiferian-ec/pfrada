@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Corporation Details</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Business Name</th>
+                <td>{{ corporation.businessName }}</td>
+            </tr>
+            <tr>
+                <th>Date Registered</th>
+                <td>{{ corporation.dateRegistered ? corporation.dateRegistered|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>BIR Registration</th>
+                <td>{{ corporation.birNo }}</td>
+            </tr>
+            <tr>
+                <th>TIN No</th>
+                <td>{{ corporation.tinNo }}</td>
+            </tr>
+            <tr>
+                <th>PHILGEPS</th>
+                <td>{{ corporation.philgeps }}</td>
+            </tr>
+            <tr>
+                <th>Owner Name</th>
+                <td>{{ corporation.ownerName }}</td>
+            </tr>
+            <tr>
+                <th>Contact Person</th>
+                <td>{{ corporation.contactPersonName }}</td>
+            </tr>
+            <tr>
+                <th>Email Of Contact Person</th>
+                <td>{{ corporation.emailOfContactPerson }}</td>
+            </tr>
+            <tr>
+                <th>Contact No</th>
+                <td>{{ corporation.contactNo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('corporation_index') }}">back to list</a>
+
+    <a href="{{ path('corporation_edit', {'id': corporation.id}) }}">edit</a>
+{% endblock %}

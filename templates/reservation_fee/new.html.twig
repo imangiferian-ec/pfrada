@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ReservationFee{% endblock %}
+
+{% block body %}
+    <h1>Create new ReservationFee</h1>
+
+    {{ include('reservation_fee/_form.html.twig') }}
+
+    <a href="{{ path('reservation_fee_index') }}">back to list</a>
+{% endblock %}

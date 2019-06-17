@@ -1,0 +1,46 @@
+{{ form_start(form) }}
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.voterFeeAmount) }}
+        {{ form_widget(form.voterFeeAmount, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.voterFeeAmount) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.nonVoterFeeAmount) }}
+        {{ form_widget(form.nonVoterFeeAmount, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.nonVoterFeeAmount) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.clearancePurpose) }}
+        {{ form_widget(form.clearancePurpose, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.clearancePurpose) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="float-right btn btn-primary btn-md">{{ button_label|default('Save') }}</button>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}

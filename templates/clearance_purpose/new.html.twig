@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Create new ClearancePurpose</h1>
+
+    {{ include('clearance_purpose/_form.html.twig') }}
+
+    <a href="{{ path('clearance_purpose_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clearance Purpose Details</h1>
+    <hr>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Purpose</th>
+                <td>{{ clearance_purpose.purpose }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ clearance_purpose.description }}</td>
+            </tr>
+            <tr>
+                <th>Is Active</th>
+                <td>{{ clearance_purpose.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('clearance_purpose_index') }}">back to list</a>
+
+    <a href="{{ path('clearance_purpose_edit', {'id': clearance_purpose.id}) }}">edit</a>
+{% endblock %}

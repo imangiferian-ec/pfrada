@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>User List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set cnt = 1 %}
+        {% for user in users %}
+            <tr>
+                <td>{{ cnt }}</td>
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_new') }}">Create new</a>
+{% endblock %}

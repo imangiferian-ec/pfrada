@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RolesFunctionPermission{% endblock %}
+
+{% block body %}
+    <h1>Function Permission Details</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Function Name</th>
+                <td>{{ roles_function_permission.functionName }}</td>
+            </tr>
+            <tr>
+                <th>Route</th>
+                <td>{{ roles_function_permission.route }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ roles_function_permission.label }}</td>
+            </tr>
+            <tr>
+                <th>Permitted Roles</th>
+                <td>{{ roles_function_permission.permittedRoles ? roles_function_permission.permittedRoles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ roles_function_permission.position }}</td>
+            </tr>
+            <tr>
+                <th>Is Active</th>
+                <td>{{ roles_function_permission.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Is Side Menu</th>
+                <td>{{ roles_function_permission.isSideMenu ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('roles_function_permission_index') }}">back to list</a>
+
+    <a href="{{ path('roles_function_permission_edit', {'id': roles_function_permission.id}) }}">edit</a>
+{% endblock %}

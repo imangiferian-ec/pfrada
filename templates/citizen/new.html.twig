@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Create New Citizen</h1>
+    <hr>
+
+    {{ include('citizen/_form.html.twig') }}
+
+    <a href="{{ path('citizen_index') }}">back to list</a>
+{% endblock %}

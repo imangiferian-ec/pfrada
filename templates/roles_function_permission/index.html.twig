@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RolesFunctionPermission index{% endblock %}
+
+{% block body %}
+    <h1>Function List and Permissions</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>FunctionName</th>
+                <th>Label</th>
+                <th>Permitted Roles</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set cnt = 1 %}
+        {% for roles_function_permission in roles_function_permissions %}
+            <tr>
+                <td>{{ cnt }}</td>
+                <td>{{ roles_function_permission.functionName }}</td>
+                <td>{{ roles_function_permission.label }}</td>
+                <td>{{ roles_function_permission.permittedRoles ? roles_function_permission.permittedRoles|json_encode : '' }}</td>
+                <td>
+                    <a href="{{ path('roles_function_permission_show', {'id': roles_function_permission.id}) }}">show</a>
+                    <a href="{{ path('roles_function_permission_edit', {'id': roles_function_permission.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary btn-md"  href="{{ path('modify_all_pl') }}" >Modify All</a>
+{% endblock %}

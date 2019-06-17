@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Citizens Details</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="{{ citizen.citizenImage }}" width="200" height="200">
+        </div>
+        <div class="col-md-9">
+            Name: {{ citizen.lastname|title }}, {{ citizen.firstname|title }} {{ citizen.middlename|slice(0,1)|title }}. {{ citizen.extensionName|upper }}
+            {% if citizen.maidenName is not empty %}
+              <div class="row">
+                <div class="col-md-12">
+                  Maiden Name: {{ citizen.maidenName | title }}
+                </div>
+              </div>
+            {% endif %}
+          <div class="row">
+            <div class="col-md-12">
+              Birthdate: {{ citizen.birthDate ? citizen.birthDate|date('F d,Y') : '' }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Address: {{ citizen.address | title }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Barangay: {{ citizen.barangay | title }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Email: {{ citizen.email | title }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Civil Status: {{ citizen.civilStatus | title }} | Gender: {{ citizen.gender == 'm' ? 'Male' : 'Female' }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Voter ID: {{ citizen.citizenVoterID }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a class="btn btn-primary btn-md" href="{{ path('citizen_index') }}">back to list</a>
+          <a class="btn btn-warning btn-md" href="{{ path('citizen_edit', {'id': citizen.id}) }}">edit</a>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

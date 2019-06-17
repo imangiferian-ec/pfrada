@@ -1,0 +1,154 @@
+{{ form_start(form) }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        {{ form_label(form.lastname) }}
+        {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.lastname) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        {{ form_label(form.firstname) }}
+        {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.firstname) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        {{ form_label(form.middlename) }}
+        {{ form_widget(form.middlename, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.middlename) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        {{ form_label(form.extensionName) }}
+        {{ form_widget(form.extensionName, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.extensionName) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.maidenName) }} (if any)
+        {{ form_widget(form.maidenName, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.maidenName) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.gender) }}
+        {{ form_widget(form.gender, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.gender) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.civilStatus) }}
+        {{ form_widget(form.civilStatus, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.civilStatus) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-group">
+        {{ form_label(form.address) }}
+        {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.civilStatus) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.barangay) }}
+        {{ form_widget(form.barangay, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.barangay) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.email) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.contactNo) }}
+        {{ form_widget(form.contactNo, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.contactNo) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.birthDate) }}
+        {{ form_widget(form.birthDate) }}
+        <div class="form-error">
+          {{ form_errors(form.birthDate) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.citizenVoterID) }}
+        {{ form_widget(form.citizenVoterID, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+          {{ form_errors(form.citizenVoterID) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form_label(form.isBrgyEmployee) }}
+        {{ form_widget(form.isBrgyEmployee) }}
+        <div class="form-error">
+          {{ form_errors(form.isBrgyEmployee) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="float-right btn btn-primary btn-md">{{ button_label|default('Save') }}</button>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}

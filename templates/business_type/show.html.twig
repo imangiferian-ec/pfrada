@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BusinessType{% endblock %}
+
+{% block body %}
+    <h1>BusinessType</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Business Type Name</th>
+                <td>{{ business_type.businessTypeName }}</td>
+            </tr>
+            <tr>
+                <th>BusinessTypeDescription</th>
+                <td>{{ business_type.businessTypeDescription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('business_type_index') }}">back to list</a>
+
+    <a href="{{ path('business_type_edit', {'id': business_type.id}) }}">edit</a>
+{% endblock %}

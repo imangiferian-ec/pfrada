@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Corporation index{% endblock %}
+
+{% block body %}
+    <h1>Corporation List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Business Name</th>
+                <th>Date Registered</th>
+                <th>Owner Name</th>
+                <th>Contact Person</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set cnt = 1 %}
+        {% for corporation in corporations %}
+            <tr>
+                <td>{{ cnt }}</td>
+                <td>{{ corporation.businessName | title }}</td>
+                <td>{{ corporation.dateRegistered ? corporation.dateRegistered|date('Y-m-d') : '' }}</td>
+                <td>{{ corporation.ownerName | title }}</td>
+                <td>{{ corporation.contactPersonName | title }}</td>
+                <td>{{ corporation.emailOfContactPerson }}</td>
+                <td>{{ corporation.contactNo }}</td>
+                {% set cnt = cnt + 1 %}
+                <td>
+                    <a href="{{ path('corporation_show', {'id': corporation.id}) }}">show</a>
+                    <a href="{{ path('corporation_edit', {'id': corporation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('corporation_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{{ form_start(form) }}
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.feePerHour) }}
+        {{ form_widget(form.feePerHour, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.feePerHour) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.maintenanceFee) }}
+        {{ form_widget(form.maintenanceFee, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.maintenanceFee) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        {{ form_label(form.facility) }}
+        {{ form_widget(form.facility, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+        {{ form_errors(form.facility) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="float-right btn btn-primary btn-md">{{ button_label|default('Save') }}</button>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Facility List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Facility Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set cnt = 1 %}
+        {% for facility in facilities %}
+            <tr>
+                <td>{{ cnt }}</td>
+                <td>{{ facility.facilityName | title }}</td>
+                <td>{{ facility.description | title }}</td>
+                <td>
+                    <a href="{{ path('facility_show', {'id': facility.id}) }}">show</a>
+                    <a href="{{ path('facility_edit', {'id': facility.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('facility_new') }}">Create new</a>
+{% endblock %}
